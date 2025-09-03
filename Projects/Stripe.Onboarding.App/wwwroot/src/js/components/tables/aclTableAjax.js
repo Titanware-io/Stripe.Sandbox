@@ -37,10 +37,11 @@ export default function (params) {
         },
         getColValue(keyValue, header) {
             if (!keyValue) return '';
-            if (!header) return keyValue.key || '';
+            if (!header) return keyValue.key || ''; 
             switch (header.headerType) {
                 case this.mxTable_headerTypeText:
-                    return keyValue.key;
+                    // Overrode existing
+                    return keyValue.value;
                 case this.mxTable_headerTypeLink:
                     return `<a href="${keyValue.value}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">${keyValue.key}</a>`;
                 case this.mxTable_headerTypeButtons:

@@ -1,0 +1,53 @@
+﻿@model Stripe.Onboarding.App.Models.View.ProductListingPage
+@{
+    ViewData["Title"] = "Home page";
+}
+<section x-data="{
+    hasOneOff: null,
+    hasRecurring: null,
+    items: @System.Text.Json.JsonSerializer.Serialize(Model.Catalog),
+    userId: '@Model.UserId',
+    init() {
+        if (this.cart.Items == null || this.cart.Items.length == 0) return;
+        const recurring = this.cart.Items.filter(x => x.Product.IsRecurring).length > 0;
+        console.log(recurring)
+        this.setRecurringLogic(recurring)
+    },
+    get oneOffItems() {
+        return this.items.filter(x => !x.IsRecurring);
+    },
+    get recurringItems() {
+        return this.items.filter(x => x.IsRecurring);
+    },
+    async addToCart(item, recurring = false) {
+        const result = await this.$fetch.POST('@Model.CartPostbackUrl', {
+            userId: '@Model.UserId',
+            productId: item.Id,
+            quantity: 1,
+        })
+        if(!result) return;
+
+        this.$events.Emit('addToCart', result);
+        this.setRecurringLogic(recurring)
+    },
+    setRecurringLogic(recurring) {
+        this.hasRecurring = recurring;
+        this.hasOneOff = !recurring;
+    }
+}">
+    <nav>
+        <header>
+            <hgroup>
+                <h1>Browse Connect</h1>
+            </hgroup>
+        </header>
+    </nav>
+    <!-- Filters -->
+    <div x-transition class="grid">
+        <template >
+          <article class="flat">
+            <header><strong>Connect</strong></header>
+          </article>
+        </template>
+    </div>
+</section>

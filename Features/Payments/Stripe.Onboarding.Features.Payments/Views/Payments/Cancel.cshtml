@@ -11,7 +11,7 @@
         </nav>
     </header>
     <div>
-        <div x-data="formPostback(@System.Text.Json.JsonSerializer.Serialize(Model.PaymentForm))"></div>
+        <div x-data="aclFormPostback(@System.Text.Json.JsonSerializer.Serialize(Model.PaymentForm))"></div>
     </div>
     <footer>
         <nav>

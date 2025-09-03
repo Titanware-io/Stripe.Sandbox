@@ -17,16 +17,22 @@ namespace Stripe.Onboarding.Foundations.Common.Controllers
         public BasePage CreateBaseContent()
         {
             var model = new BasePage();
+            model.SiteName = "Stripe Sandbox";
             model.TopNavigation = new List<NavigationItem>()
             {
                 new NavigationItem()
                 {
-                    Href = "/",
-                    Text = "Products"
+                    Href = "/Connect",
+                    Text = "Connect"
                 },
                 new NavigationItem()
                 {
-                    Href = "/Cart/Checkout",
+                    Href = "/Payments",
+                    Text = "Payments"
+                },
+                new NavigationItem()
+                {
+                    Href = "/Cart",
                     Text = "Cart"
                 },
             }; 

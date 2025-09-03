@@ -5,6 +5,7 @@ using Stripe.Onboarding.Foundations.Cart.Services;
 using Stripe.Onboarding.Foundations.Common.Models;
 using Stripe.Onboarding.Foundations.Integrations.Stripe.Services;
 using System.Web.Helpers;
+using stripeEvents = Stripe.EventTypes;
 
 namespace Stripe.Onboarding.Features.Payment.Controller
 {
@@ -40,7 +41,7 @@ namespace Stripe.Onboarding.Features.Payment.Controller
                 
                 switch (stripeEvent.Type)
                 {
-                    case Events.CheckoutSessionCompleted:
+                    case stripeEvents.CheckoutSessionCompleted:
 
                         session = GetSession(stripeEvent);
                         //TODO: Include conditions when checking payment
@@ -56,19 +57,19 @@ namespace Stripe.Onboarding.Features.Payment.Controller
                         UpdateFulfillOrder(session); 
 
                         break;
-                    case Events.CheckoutSessionAsyncPaymentSucceeded:
+                    case stripeEvents.CheckoutSessionAsyncPaymentSucceeded:
                         // Fulfill the purchase
                         session = GetSession(stripeEvent);
                         UpdatePaidOrder(session);
 
                         break;
-                    case Events.CheckoutSessionAsyncPaymentFailed:
+                    case stripeEvents.CheckoutSessionAsyncPaymentFailed:
                         session = stripeEvent.Data.Object as Checkout.Session;
                         // Send an email to the customer asking them to retry their order
                         EmailCustomerAboutFailedPayment(session);
                         
                         break;
-                    case Events.PaymentIntentSucceeded:
+                    case stripeEvents.PaymentIntentSucceeded:
                         var eventIntent = stripeEvent.Data.Object as Stripe.PaymentIntent;
 
                         break;

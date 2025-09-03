@@ -9,9 +9,8 @@ export default function (params) {
         form: {},
         // INIT
         init() {
-            this._mxContent_setValues(params);
             this._mxForm_SetValues(params);
-            //this.setValues(params);
+            this._mxContent_setValues(params);
             this.render();
         },
         // GETTERS

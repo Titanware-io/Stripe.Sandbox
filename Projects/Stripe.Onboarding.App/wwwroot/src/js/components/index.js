@@ -42,12 +42,12 @@ import {
     aclFormFieldsetDisabled,
     aclFormAjaxStripeCard,
     aclFormAjaxStripeBank,
+    aclFormAjaxStripeConnectApi,
 } from './forms/index.js'
 // FIELDS
 import {
     aclFieldLabel,
     aclFieldInput,
-    // Cybersource
     aclFieldInputAccountNumber,
     aclFieldInputConfirmAccountNumber,
     aclFieldInputRoutingNumber,
@@ -155,6 +155,8 @@ export {
     aclFormFieldsetDisabled,
     aclFormAjaxStripeCard,
     aclFormAjaxStripeBank,
+    aclFormAjaxStripeConnectApi,
+
     // INPUTS
     aclFieldLabel,
     aclFieldInput,

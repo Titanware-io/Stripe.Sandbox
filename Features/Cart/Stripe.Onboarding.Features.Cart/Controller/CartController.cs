@@ -28,8 +28,11 @@ namespace Stripe.Onboarding.Features.Cart.Controllers
 
 
         #region Checkout
+        public async Task<IActionResult> Index()
+        {
+            return RedirectToAction(nameof(CartController.Checkout));
+        }
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> Checkout()
         {
             var cart = _cartSessionService.GetCart(this.GetSessionUser());

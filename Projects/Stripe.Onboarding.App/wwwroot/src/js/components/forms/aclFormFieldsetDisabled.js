@@ -30,19 +30,20 @@ export default function (params) {
         setValues(params) {
             params = params || {}
             this.mxForm_fields = params.fields || [];
-            let fields = params.fields || [];
             for (var i = 0; i < this.mxForm_fields.length; i++) {
                 // assign row value
-                if(!this.mxForm_fields[i].row) {
+                if (!this.mxForm_fields[i].row) {
                     this.mxForm_fields[i].row = i
                 }
                 // Set all hidden fields to be a single col
-                if(this.mxForm_fields[i].hidden) this.mxForm_fields[i].row = -1
+                if (this.mxForm_fields[i].hidden) this.mxForm_fields[i].row = -1
 
                 this.mxForm_fields[i].disabled = true;
                 this.mxForm_fields[i].placeholder = null;
                 this.mxForm_fields[i].class = "text-left text-gray-500 dark:text-gray-400 w-full px-0 bg-white py-1 rounded-lg";
-            } 
+            }
+            const rowValues = this.mxForm_fields.map(x => x.row)
+            this.rows = [...new Set(rowValues)];
         },
         getFieldComponent(field) {
             const fieldType = field.component || field.type;
@@ -50,8 +51,9 @@ export default function (params) {
             return fieldComponent != null ? fieldComponent(field) : aclFieldInput(field)
         },
         getField(row) {
-            if(this.rows.length == 0 || this.rows.length == 1) return this.mxForm_fields;
+            if (this.rows.length == 0 || this.rows.length == 1) return this.mxForm_fields;
             const fields = this.mxForm_fields.filter(x => x.row == row && !x.hidden)
+            
             return fields;
         },
         getFieldKey(field, i) {
@@ -60,7 +62,7 @@ export default function (params) {
         },
         getGridClass(row) {
             const length = this.getField(row).length;
-            const col = length<= 1 ? 1 : 2;
+            const col = length <= 1 ? 1 : 2;
             return `grid-cols-${col} gap-2`;
         },
         render() {

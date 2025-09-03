@@ -1,0 +1,118 @@
+﻿@using System.Collections.Generic
+@using System.Linq
+@using Microsoft.AspNetCore.Http
+@model Stripe.Onboarding.Features.Connect.Models.Views.ConnectPage
+
+<script defer>
+    // This is a public sample test API key.
+    // Don’t submit any personally identifiable information in requests made with this key.
+    // Sign in to see your own test API key embedded in code samples.
+    try {
+        const appearance = {
+            theme: 'night',
+            variables: {
+                fontFamily: 'Sohne, system-ui, sans-serif',
+                fontWeightNormal: '500',
+                borderRadius: '8px',
+                colorBackground: '#0A2540',
+                colorPrimary: '#EFC078',
+                accessibleColorOnColorPrimary: '#1A1B25',
+                colorText: 'white',
+                colorTextSecondary: 'white',
+                colorTextPlaceholder: '#ABB2BF',
+                tabIconColor: 'white',
+                logoColor: 'dark'
+            },
+            rules: {
+                '.Input': {
+                    backgroundColor: '#212D63',
+                    border: '1px solid var(--colorPrimary)'
+                }
+            }
+        };
+        // use window implementation rather than this.$store.svcStripe
+        const stripe = Stripe('@Model.PublicKey');
+        initialize();
+
+        // Create a Checkout Session
+        async function initialize() {
+            /*
+            const elements = stripe.elements({'@Model.PublicKey', appearance });
+            const options = {
+                wallets: true
+            };
+            const paymentElement = elements.create('payment', options);
+            */
+
+            // More secure - not storing key exposed in dom
+            /*
+            const fetchClientSecret = async () => {
+                const response = await fetch('@Model.PostbackUrl', {
+                    method: 'POST',
+                });
+                const { clientSecret } = await response.json();
+                return clientSecret;
+            };
+            var key = await fetchClientSecret();
+            */
+             
+            // Mount Checkout
+            //checkout.mount('#checkout');
+        }
+    }
+    catch (e) {
+
+    }
+
+</script>
+
+<nav>
+    <header>
+        <hgroup>
+            <h1>Checkout</h1>
+        </hgroup>
+    </header>
+</nav>
+
+<div id="onboarding">
+    <!-- Checkout will insert the payment form here -->
+</div>
+
+<section x-data="{
+    userId: '@Model.UserId',
+    stripe: null,
+    async init() {
+        const self = this;
+         
+    }
+}">
+    <article class="dense" 
+        <header>
+            <nav>
+                @Model.PageTitle
+            </nav>
+        </header>
+        <!-- Embedded -->
+        <div x-html="aclFormAjaxStripeConnectApi({
+            publicKey: '@Model.PublicKey', 
+            secretKey: '@Model.ClientSecret' 
+        })">
+            <!-- Checkout will insert the payment form here -->
+        </div>
+
+        <!--APi-->
+        <div> 
+            <div x-data="aclFormAjax(@System.Text.Json.JsonSerializer.Serialize(Model.Form))"></div>
+        </div>
+       
+        <footer>
+            <nav>
+                <ul>
+                    <li>
+                        <button>Back</button>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </article>
+</section>

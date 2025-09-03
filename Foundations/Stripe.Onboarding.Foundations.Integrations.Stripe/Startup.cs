@@ -20,6 +20,7 @@ namespace Stripe.Onboarding.Foundations.Integrations.Stripe
             });
             // SERVICES
             services.AddTransient<IStripeCheckoutService, StripeCheckoutService>();
+            services.AddTransient<IStripeConnectService, StripeConnectService>();
             services.AddTransient<IStripeWebhookService, StripeWebhookService>();
         }
     }
