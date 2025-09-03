@@ -27,8 +27,8 @@ namespace Stripe.Onboarding.Foundations.Common.Controllers
                 },
                 new NavigationItem()
                 {
-                    Href = "/Payments",
-                    Text = "Payments"
+                    Href = "/Products",
+                    Text = "Products"
                 },
                 new NavigationItem()
                 {
