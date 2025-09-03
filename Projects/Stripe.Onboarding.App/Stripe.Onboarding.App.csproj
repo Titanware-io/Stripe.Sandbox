@@ -50,7 +50,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Partials\" />
-    <Folder Include="wwwroot\src\css\favicon\" />
     <Folder Include="wwwroot\src\favicon\" />
     <Folder Include="wwwroot\src\images\" />
   </ItemGroup>
@@ -88,7 +87,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Features\Cart\Stripe.Onboarding.Features.Cart\Stripe.Onboarding.Features.Cart.csproj" />
-    <ProjectReference Include="..\..\Features\Connect\Stripe.Onboarding.Features.Connect\Stripe.Onboarding.Features.Connect.csproj" />
     <ProjectReference Include="..\..\Features\Payments\Stripe.Onboarding.Features.Payments\Stripe.Onboarding.Features.Payments.csproj" />
     <ProjectReference Include="..\..\Foundations\Stripe.Onboarding.Foundations.Authentication\Stripe.Onboarding.Foundations.Authentication.csproj" />
     <ProjectReference Include="..\..\Foundations\Stripe.Onboarding.Foundations.Common\Stripe.Onboarding.Foundations.Common.csproj" />

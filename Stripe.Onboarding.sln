@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		README.md = README.md
 		secrets.txt = secrets.txt
-		..\stripe.exe = ..\stripe.exe
-		webhooks.md = webhooks.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stripe.Onboarding.App", "Projects\Stripe.Onboarding.App\Stripe.Onboarding.App.csproj", "{8028FF3B-D669-4303-B28E-8A8735EEEB09}"
@@ -35,8 +33,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stripe.Onboarding.Foundations.Authentication", "Foundations\Stripe.Onboarding.Foundations.Authentication\Stripe.Onboarding.Foundations.Authentication.csproj", "{7D9343F6-E1F9-4767-9D7D-CF8C910C9353}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stripe.Onboarding.Foundations.Orders", "Foundations\Stripe.Onboarding.Foundations.Orders\Stripe.Onboarding.Foundations.Orders.csproj", "{E2C2FC42-4AB6-482E-A5E6-0DF30AA19272}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stripe.Onboarding.Features.Connect", "Features\Connect\Stripe.Onboarding.Features.Connect\Stripe.Onboarding.Features.Connect.csproj", "{1DCB7143-67A5-4C4F-B597-A76206735F77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,12 +89,6 @@ Global
 		{E2C2FC42-4AB6-482E-A5E6-0DF30AA19272}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2C2FC42-4AB6-482E-A5E6-0DF30AA19272}.Staging|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2C2FC42-4AB6-482E-A5E6-0DF30AA19272}.Staging|Any CPU.Build.0 = Debug|Any CPU
-		{1DCB7143-67A5-4C4F-B597-A76206735F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DCB7143-67A5-4C4F-B597-A76206735F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DCB7143-67A5-4C4F-B597-A76206735F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DCB7143-67A5-4C4F-B597-A76206735F77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DCB7143-67A5-4C4F-B597-A76206735F77}.Staging|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DCB7143-67A5-4C4F-B597-A76206735F77}.Staging|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -112,7 +102,6 @@ Global
 		{464591E1-18AC-4DF8-B1B9-087F9359239F} = {0F78300C-A3ED-4741-A90C-3B15DDE88723}
 		{7D9343F6-E1F9-4767-9D7D-CF8C910C9353} = {0F78300C-A3ED-4741-A90C-3B15DDE88723}
 		{E2C2FC42-4AB6-482E-A5E6-0DF30AA19272} = {0F78300C-A3ED-4741-A90C-3B15DDE88723}
-		{1DCB7143-67A5-4C4F-B597-A76206735F77} = {A3D2B537-0213-45E5-906B-A3774496BB79}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3584F311-FD8B-4D8A-9984-BE84EB37D3EE}

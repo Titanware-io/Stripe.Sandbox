@@ -16,7 +16,6 @@ namespace Stripe.Onboarding.Foundations.Integrations.Stripe.Services
         SessionService _checkoutSessionService { get; set; }
         SetupIntentService _setupIntentService { get; set; }
         PaymentIntentService _paymentIntentService { get; set; }
-        
         ChargeService _chargeService { get; set; }
         public StripeCheckoutService(IOptions<StripeConfig> options)
         {

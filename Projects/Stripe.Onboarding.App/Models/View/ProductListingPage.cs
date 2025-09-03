@@ -7,7 +7,6 @@ namespace Stripe.Onboarding.App.Models.View
     {
         public ProductListingPage(BasePage page)
         {
-            this.SiteName = page.SiteName;
             this.TopNavigation = page.TopNavigation;
             this.UserId = page.UserId;
         }

@@ -13,7 +13,6 @@ using Stripe.Onboarding.Foundations.Products.Services;
 namespace Stripe.Onboarding.App.Controllers
 {
     //[Authorize]
-    
     public class HomeController : BaseController
     {
         IProductCatalogService _productCatalogService;
@@ -25,53 +24,27 @@ namespace Stripe.Onboarding.App.Controllers
             _productCatalogService = productCatalogService;
         }
 
-        private BasePage CreateBasePage()
+
+        private BasePage CreateProductListingPage()
         {
-            var model = this.CreateBaseContent();
-            
+            var cart = _cartSessionService.GetCart(this.GetSessionUser());
+            var model = new ProductListingPage(this.CreateBaseContent());
+            model.Cart = cart;
+            model.Catalog = _productCatalogService.GetCatalog();
+            model.CartPostbackUrl = "/api/cartsession/add";
+            model.CartItems = cart.Items?.Count() ?? 0;
             return model;
-        }
-        private BasePage CreateProductsPage()
-        {
-            var cart = _cartSessionService.GetCart(this.GetSessionUser());
-            var model = CreateBasePage();
-            var viewModel = new ProductListingPage(model);
-            viewModel.Cart = cart;
-            viewModel.Catalog = _productCatalogService.GetCatalog();
-            viewModel.CartPostbackUrl = "/api/cartsession/add";
-            viewModel.CartItems = cart.Items?.Count() ?? 0;
-            return viewModel;
-        }
-        private BasePage CreateConnectPage()
-        {
-            var cart = _cartSessionService.GetCart(this.GetSessionUser());
-            var model = CreateBasePage();
-            var viewModel = new ProductListingPage(this.CreateBaseContent());
-            viewModel.Cart = cart;
-            viewModel.Catalog = _productCatalogService.GetCatalog();
-            viewModel.CartPostbackUrl = "/api/cartsession/add";
-            viewModel.CartItems = cart.Items?.Count() ?? 0;
-            return viewModel;
         }
         public IActionResult Index()
         {
-            return RedirectToAction("Products");
+            return RedirectToAction("ProductListing");
+        }
+        public IActionResult ProductListing()
+        {
+            var model = this.CreateProductListingPage();
+            return View(model);
         }
 
-        [HttpGet("Products")]
-        public IActionResult Products()
-        {
-            var model = this.CreateProductsPage();
-            return View(model);
-        }
-        /*
-        [Route("Connect")]
-        public IActionResult Connect()
-        {
-            var model = this.CreateConnectPage();
-            return View(model);
-        }
-        */
 
     }
 }

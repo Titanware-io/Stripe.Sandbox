@@ -56,6 +56,7 @@ namespace Stripe.Onboarding.Features.Cart.Controllers
 
         #region Customer charges
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Charges()
         {
             var paymentModel = new CheckoutPage(this.CreateBaseContent());
@@ -77,6 +78,7 @@ namespace Stripe.Onboarding.Features.Cart.Controllers
         #region Hosted Page
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> HostedPage()
         {
             var userId = this.GetSessionUser();
@@ -115,6 +117,7 @@ namespace Stripe.Onboarding.Features.Cart.Controllers
             return paymentModel;
         }
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> EmbeddedForm()
         {
             var userId = this.GetSessionUser();
@@ -129,6 +132,7 @@ namespace Stripe.Onboarding.Features.Cart.Controllers
 
         //https://docs.stripe.com/checkout/embedded/quickstart
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateEmbeddedFormSession()
         {
             var userId = this.GetSessionUser();

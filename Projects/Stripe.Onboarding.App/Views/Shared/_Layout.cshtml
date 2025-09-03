@@ -14,23 +14,15 @@
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@picocss/pico@2/css/pico.min.css" />
     <!-- CSS Overrides -->
-    
-    <link rel="stylesheet" href="~/src/css/main.css" />
-   
-    <!--
     <link rel="stylesheet" href="~/src/css/app.css" />
-     -->
+
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-    <link rel="manifest" href="~/src/manifest.json" />
     <script src="https://unpkg.com/cleave-zen@0.0.17/dist/cleave-zen.umd.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <!--https://docs.stripe.com/connect/get-started-connect-embedded-components#without-npm-->
-    <script src="https://connect-js.stripe.com/v1.0/connect.js" async></script>
-
 </head>
 
 <body style="background-color: min-height: 100%; height: 100vh;">
@@ -51,7 +43,7 @@
             }"
              :class="fixed ? 'container  floating topnav' : 'topnav'"
              style="padding: 0px 8px;">
-            <ul><li><strong><a href="/">@Model.SiteName</a></strong></li></ul>
+            <ul><li><strong><a href="/">Stripe.Shopping</a></strong></li></ul>
             @if(Model.TopNavigation != null)
             {
                 <ul>

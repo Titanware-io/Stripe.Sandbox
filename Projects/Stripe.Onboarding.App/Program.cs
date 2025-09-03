@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,9 +70,7 @@ var isProduction = builder.Environment.IsProduction();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // enable MVC
-builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
-{
-});
+builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 builder.Services.AddRazorPages();
 
 // enable sessionState

@@ -5,14 +5,12 @@ import aclFormFieldset from './aclFormFieldset.js'
 import aclFormFieldsetDisabled from './aclFormFieldsetDisabled.js'
 import aclFormAjaxStripeCard from './aclFormAjaxStripeCard.js'
 import aclFormAjaxStripeBank from './aclFormAjaxStripeBank.js'
-import aclFormAjaxStripeConnectApi from './aclFormAjaxStripeConnectApi.js'
 
 export {
     aclFormPostback,
     aclFormAjax,
     aclFormFieldset,
     aclFormFieldsetDisabled,
-    aclFormAjaxStripeConnectApi,
     aclFormAjaxStripeCard,
     aclFormAjaxStripeBank,
 }

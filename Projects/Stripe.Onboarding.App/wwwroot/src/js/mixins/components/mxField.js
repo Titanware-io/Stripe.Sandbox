@@ -1,7 +1,6 @@
 export default function (data) {
     return {
         mxField_inputClass: 'block w-full px-4 py-4 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50',
-        mxField_inputDisabledClass: 'block w-full px-4 py-4 text-xl placeholder-gray-200 text-gray-500 bg-gray-100 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50',
         // PROPERTIES
         mxField_type: 'text',
         mxField_placeholder: null,
@@ -37,15 +36,6 @@ export default function (data) {
         get mxField_inputEmailRegex() { return '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$' },
         get mxField_inputJsonRegex() { return '!(/[^,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]/$' },
         // METHODS
-
-        _mxField_GetFieldClass() {
-            let cssClass = this.mxField_disabled ? this.mxField_inputDisabledClass : this.mxField_inputClass;
-            if (this.mxField_class) {
-                cssClass = this.mxField_class;
-            }
-            if (!!this.mxField_icon && !this.mxField_disabled) return `${cssClass} ps-10 p-2.5`;
-            return cssClass;
-        },
         _mxField_change(id, name, data) {
             const field = {
                 id: id,
